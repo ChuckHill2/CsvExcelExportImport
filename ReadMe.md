@@ -1,4 +1,4 @@
-﻿**Purpose**  
+**Purpose**  
 A single module that encapsulates all the code necessary to serialize
 and deserialize enumerable class objects into Excel and CSV file
 formats.
@@ -30,7 +30,7 @@ attribute XlSheet.
 + Multiple choice objects such as booleans and enums are handled as translatable dropdowns in the spreadsheet.
 
 **Excel example worksheet with header**
-![Excel example worksheet with header](ReadmeImages\image1.png)
+![Excel example worksheet with header](ReadmeImages/image1.png)
 
 - Column order is implicitly defined by the order of properties in the
   class object.
@@ -40,7 +40,7 @@ attribute XlSheet.
   class property names.
 
 **Excel example worksheet without header**
-![Excel example worksheet without header](ReadmeImages\image2.png)
+![Excel example worksheet without header](ReadmeImages/image2.png)
 
 - Column auto-fit is determined by the maximum width of any single
   word in the column heading and the maximum width of the data.
