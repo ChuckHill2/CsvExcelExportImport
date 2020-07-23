@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <Description>C# Excel and CSV Reporting Library
+
+Write enumerable array to compact CSV stream that is readable by Excel.
+Read any CSV stream into enumerable array.
+
+Write multiple enumerable arrays into formatted excel worksheet tables.
+Read excel worksheet into multiple enumerable arrays.
+
+Worksheet formatting controlled by class property descriptors (aka attributes).
+CSV and Excel tables (and data) are fully localizable.
+Minimal memory footprint.
+
+Leverages EPPlus, a powerful library for reading and writing Excel 2007/2010 files.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+  <!--https://www.meziantou.net/declaring-internalsvisibleto-in-the-csproj.htm-->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>CsvExcelExportImport.UnitTests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>CsvExcelExportImport.TestConsole</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ProjectLogo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="$(PackageOutputPath)CsvExcelExportImport.chm">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="$(PackageOutputPath)netstandard2.0\$(AssemblyName).pdb">
+      <Pack>True</Pack>
+      <PackagePath>lib\netstandard2.0</PackagePath>
+    </None>
+    <None Include="$(PackageOutputPath)net45\$(AssemblyName).pdb">
+      <Pack>True</Pack>
+      <PackagePath>lib\net45</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Doxygen" Version="1.8.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="EPPlus" Version="4.5.3.3" />
+  </ItemGroup>
+
+  <!--Build documentation just before nuget package is built-->
+  <Target Name="Doxygen" BeforeTargets="_GetPackageFiles" Condition="'$(Configuration)' == 'Release'">
+    <Exec Command="&quot;$(MSBuildThisFileDirectory)PostBuildEvent.bat&quot; $(Configuration) &quot;$(PackageOutputPath)&quot;" ContinueOnError="false" />
+  </Target>
+</Project>
