@@ -42,7 +42,7 @@ using OfficeOpenXml.Style;
 namespace CsvExcelExportImport
 {
     /// <summary>
-    /// Specialized import/export of 2-dimensional array of a formatted many-to-many assignment spreadsheet. Based upon legacy AssignmentExcel class.
+    /// Specialized import/export of 2-dimensional array of a formatted many-to-many assignment spreadsheet.
     /// </summary>
     public class ExcelAssignment
     {
