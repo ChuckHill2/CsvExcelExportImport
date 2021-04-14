@@ -15,6 +15,9 @@ CSV and Excel tables (and data) are fully localizable.
 Minimal memory footprint.
 
 Leverages EPPlus, a powerful library for reading and writing Excel 2007/2010 files.</Description>
+    <RepositoryUrl>https://github.com/ChuckHill2/CsvExcelExportImport.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/ChuckHill2/CsvExcelExportImport</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
