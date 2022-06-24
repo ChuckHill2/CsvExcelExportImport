@@ -52,3 +52,8 @@ attribute XlSheet.
   column descriptor.
 - The optional divider line is determined by a null class object in
   the enumerable array (see extension SplitBy()).
+
+**Build Notes**<br/>
+Build frameworks are .NET Framework 4.5 and .NET Standard 2.1. These two frameworks were used because these are the latest frameworks used by the dependent packages.
+The Excel reader/writer (EPPlus) package version is constrained to 4.5.3.3 as this is the last free version. Subsequent EPPlus versions require a license. This package version has all the functionality needed for *CSVExcelExportImport*.
+CSVExcelExportImport was built and tested with Visual Studio 2019.

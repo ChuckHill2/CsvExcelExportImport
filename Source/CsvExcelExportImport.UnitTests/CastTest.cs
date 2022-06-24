@@ -64,10 +64,12 @@ namespace CsvExcelExportImport.UnitTests
             Assert.AreEqual("1234.456", 1234.45600000f.CastTo<string>(), string.Empty);
 
             // System.Type <==> string
-            Assert.AreEqual("System.DateTime, mscorlib", typeof(DateTime).CastTo<string>(), string.Empty);
+            var asmName = typeof(DateTime).AssemblyQualifiedName; //assembly location differs between .NET Framework and .NET Core.
+            asmName = asmName.Substring(0, asmName.IndexOf(',', asmName.IndexOf(',', 0) + 1));
+            Assert.AreEqual(asmName, typeof(DateTime).CastTo<string>(), string.Empty);
             Assert.AreEqual(0, typeof(DateTime).CastTo<int>(), string.Empty);
             Assert.AreEqual(null, typeof(DateTime).CastTo<int?>(), string.Empty);
-            Assert.AreEqual(typeof(DateTime), "System.DateTime, mscorlib".CastTo<Type>(), string.Empty);
+            Assert.AreEqual(typeof(DateTime), asmName.CastTo<Type>(), string.Empty);
             Assert.AreEqual(null, "System.FooBar, mscorlib".CastTo<Type>(), string.Empty);
 
             // Simple integer transform

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
     <Description>C# Excel and CSV Reporting Library
 
 Write enumerable array to compact CSV stream that is readable by Excel.
@@ -43,9 +43,9 @@ Leverages EPPlus, a powerful library for reading and writing Excel 2007/2010 fil
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="$(PackageOutputPath)netstandard2.0\$(AssemblyName).pdb">
+    <None Include="$(PackageOutputPath)netstandard2.1\$(AssemblyName).pdb">
       <Pack>True</Pack>
-      <PackagePath>lib\netstandard2.0</PackagePath>
+      <PackagePath>lib\netstandard2.1</PackagePath>
     </None>
     <None Include="$(PackageOutputPath)net45\$(AssemblyName).pdb">
       <Pack>True</Pack>
